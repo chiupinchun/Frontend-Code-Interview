@@ -1,6 +1,7 @@
-import { FC, useEffect, useState } from "react"
+import { FC, useCallback, useEffect, useState } from "react"
 import { Cheese, Path, Rate, Wall } from "./blocks"
 import { Coordinate, MapData, MapTypes } from "../(types)"
+import { findPath } from "../(utils)/findPath"
 
 const blockEnum = {
   wall: Wall,
@@ -12,16 +13,18 @@ const blockEnum = {
 export const Map: FC<{
   data: MapData
 }> = ({ data }) => {
+  const [rawRateCoordinate, setRawRateCoordinate] = useState({ x: 0, y: 0 })
   const [rateCoordinate, setRateCoordinate] = useState({ x: 0, y: 0 })
   const [cheeseCoordinate, setCheeseCoordinate] = useState({ x: 0, y: 0 })
 
-  const [rateRoute, setRateRoute] = useState<Coordinate[]>([])
+  const [rateRoute, setRatePath] = useState<Coordinate[]>([])
 
   useEffect(() => {
     data.forEach((row, y) => {
       row.forEach((item, x) => {
         switch (item) {
           case 'start':
+            setRawRateCoordinate({ x, y })
             setRateCoordinate({ x, y })
             break
           case 'end':
@@ -32,9 +35,21 @@ export const Map: FC<{
     })
   }, [data])
 
-  const start = () => {
+  const start = useCallback(() => {
+    findPath(
+      rawRateCoordinate,
+      cheeseCoordinate,
+      data,
+      async (path) => {
+        const rateCoordinate = path[path.length - 1]
+        setRateCoordinate(rateCoordinate)
 
-  }
+        setRatePath(path)
+
+        await new Promise<void>(resolve => setTimeout(resolve, 100))
+      }
+    )
+  }, [rawRateCoordinate, cheeseCoordinate, data])
 
   return (
     <div className='relative mx-auto w-fit'>

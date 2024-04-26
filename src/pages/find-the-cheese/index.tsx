@@ -19,8 +19,6 @@ export const getStaticProps = (async () => {
 const FindTheCheese: FC<{
   maps: MapData[]
 }> = ({ maps }) => {
-  console.log(maps)
-
   return (
     <>
       <h1>Find the cheese</h1>
