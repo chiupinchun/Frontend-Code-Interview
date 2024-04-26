@@ -25,7 +25,12 @@ const FindTheCheese: FC<{
       <h1>Find the cheese</h1>
       <p>Click &apos;Start&apos; to see how the mouse find the cheese by using DFS!</p>
       <div className='mt-5 space-y-5'>
-        {maps.map((map, index) => <Map data={map} key={index} />)}
+        {maps.map((map, index) => (
+          <React.Fragment key={index}>
+            {index > 0 ? <hr /> : null}
+            <Map data={map} />
+          </React.Fragment>
+        ))}
       </div>
     </>
   )
