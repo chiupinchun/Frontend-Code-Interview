@@ -44,7 +44,7 @@ export const Rate: FC<{ coordinate: Coordinate }> = ({ coordinate }) => {
       left: coordinate.x * BLOCK_WIDTH,
       top: coordinate.y * BLOCK_WIDTH
     }}>
-      <LuRat />
+      <LuRat className='text-neutral-500' />
     </BasicBlock>
   )
 }
@@ -55,7 +55,7 @@ export const Cheese: FC<{ coordinate: Coordinate }> = ({ coordinate }) => {
       left: coordinate.x * BLOCK_WIDTH,
       top: coordinate.y * BLOCK_WIDTH
     }}>
-      <FaCheese />
+      <FaCheese className="text-amber-400" />
     </BasicBlock>
   )
 }
