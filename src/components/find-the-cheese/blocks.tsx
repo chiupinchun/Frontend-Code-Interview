@@ -2,7 +2,7 @@ import { FC } from "react"
 import { twMerge } from "tailwind-merge"
 import { LuRat } from "react-icons/lu"
 import { FaCheese } from "react-icons/fa"
-import { Coordinate } from "../(types)"
+import { Coordinate } from "@/types/map"
 
 const BLOCK_WIDTH = 25
 

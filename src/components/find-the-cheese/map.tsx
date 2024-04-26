@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react"
 import { Cheese, Path, Rate, Wall } from "./blocks"
-import { Coordinate, MapData, MapTypes } from "../(types)"
-import { findPath } from "../(utils)/findPath"
+import { findPath } from "../../utils/findPath"
+import { Coordinate, MapData } from "@/types/map"
 
 const blockEnum = {
   wall: Wall,

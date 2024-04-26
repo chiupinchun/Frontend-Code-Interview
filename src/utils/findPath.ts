@@ -1,4 +1,4 @@
-import { Coordinate, MapData } from "../(types)";
+import { Coordinate, MapData } from "@/types/map"
 
 export const findPath = async (
   start: Coordinate,

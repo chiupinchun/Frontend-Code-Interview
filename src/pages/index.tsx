@@ -1,6 +1,6 @@
-import CreateLayout from "./(root)/(components)/(problems)/createLayout";
-import FindTheCheesePage from "./(root)/(components)/(problems)/findTheCheesePage";
-import RefactorIndexPage from "./(root)/(components)/(problems)/refactorIndexPage";
+import CreateLayout from "../components/root/problems/createLayout";
+import FindTheCheesePage from "../components/root/problems/findTheCheesePage";
+import RefactorIndexPage from "../components/root/problems/refactorIndexPage";
 
 const problems = [
   RefactorIndexPage,
