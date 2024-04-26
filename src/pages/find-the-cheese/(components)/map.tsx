@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react"
-import { Cheese, Path, Rate, Wall } from "./blocks"
+import { Cheese, Coordinate, Path, Rate, Wall } from "./blocks"
 
 const blockEnum = {
   wall: Wall,
@@ -16,6 +16,8 @@ export const Map: FC<{
   const [rateCoordinate, setRateCoordinate] = useState({ x: 0, y: 0 })
   const [cheeseCoordinate, setCheeseCoordinate] = useState({ x: 0, y: 0 })
 
+  const [rateRoute, setRateRoute] = useState<Coordinate[]>([])
+
   useEffect(() => {
     data.forEach((row, y) => {
       row.forEach((item, x) => {
@@ -31,20 +33,30 @@ export const Map: FC<{
     })
   }, [data])
 
+  const start = () => {
+
+  }
+
   return (
     <div className='relative mx-auto w-fit'>
       {
-        data.map((row, index) => (
-          <div key={index} className='flex'>
-            {row.map((type, index) => {
+        data.map((row, y) => (
+          <div key={y} className='flex'>
+            {row.map((type, x) => {
               const Block = blockEnum[type]
-              return <Block key={index}></Block>
+              return <Block
+                key={x}
+                active={rateRoute.some(
+                  coordinate => coordinate.x === x && coordinate.y === y
+                )}
+              />
             })}
           </div>
         ))
       }
       <Rate coordinate={rateCoordinate} />
       <Cheese coordinate={cheeseCoordinate} />
+      <button onClick={start} className="block mt-3 w-full rounded bg-amber-400">Start</button>
     </div>
   )
 }

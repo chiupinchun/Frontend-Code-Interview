@@ -29,13 +29,15 @@ export const Wall: FC = () => {
   )
 }
 
-export const Path: FC = () => {
+export const Path: FC<{
+  active: boolean
+}> = ({ active }) => {
   return (
-    <BasicBlock className='bg-lime-50' />
+    <BasicBlock className={twMerge(active ? 'bg-amber-200' : 'bg-lime-50')} />
   )
 }
 
-interface Coordinate {
+export interface Coordinate {
   x: number
   y: number
 }
