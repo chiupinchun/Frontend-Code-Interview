@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
 import type { GetStaticProps } from 'next'
 import { request } from '@/utils/request'
-import { type MapData, Map } from './(components)/map'
+import { Map } from './(components)/map'
+import { MapData } from './(types)'
 
 export const getStaticProps = (async () => {
   const { data: maps } = await request.get('/api/maze')

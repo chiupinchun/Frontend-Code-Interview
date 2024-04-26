@@ -2,6 +2,7 @@ import { FC } from "react"
 import { twMerge } from "tailwind-merge"
 import { LuRat } from "react-icons/lu"
 import { FaCheese } from "react-icons/fa"
+import { Coordinate } from "../(types)"
 
 const BLOCK_WIDTH = 25
 
@@ -35,11 +36,6 @@ export const Path: FC<{
   return (
     <BasicBlock className={twMerge(active ? 'bg-amber-200' : 'bg-lime-50')} />
   )
-}
-
-export interface Coordinate {
-  x: number
-  y: number
 }
 
 export const Rate: FC<{ coordinate: Coordinate }> = ({ coordinate }) => {

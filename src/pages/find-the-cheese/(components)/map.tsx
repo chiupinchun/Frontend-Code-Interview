@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react"
-import { Cheese, Coordinate, Path, Rate, Wall } from "./blocks"
+import { Cheese, Path, Rate, Wall } from "./blocks"
+import { Coordinate, MapData, MapTypes } from "../(types)"
 
 const blockEnum = {
   wall: Wall,
@@ -7,8 +8,6 @@ const blockEnum = {
   start: Path,
   end: Path
 }
-
-export type MapData = (keyof typeof blockEnum)[][]
 
 export const Map: FC<{
   data: MapData
