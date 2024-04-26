@@ -17,7 +17,7 @@ export default function Home() {
           You can create any folders, ts/tsx/css files you need at any position
           that you think is appropriate.
         </p>
-        <p className="mt-4">Here's the requirements for the assessment:</p>
+        <p className="mt-4">Here&apos;s the requirements for the assessment:</p>
         <ul className="list-decimal pl-6">
           <li className="mt-1">
             <strong>NEVER</strong> change anything in the directories named in
@@ -50,7 +50,7 @@ export default function Home() {
             </p>
           </li>
         </ul>
-        <p className="mt-4">Good luck! Let's get started.</p>
+        <p className="mt-4">Good luck! Let&apos;s get started.</p>
         <div className="mt-6 border-t pt-6">
           <h2 className="text-xl font-bold">Problem 1: Refactoring</h2>
           <p className="mt-1">
@@ -79,7 +79,7 @@ export default function Home() {
           </p>
           <p className="mt-4">
             Meanwhile, the start button will disappear, replaced by a reset
-            button. Clicking the reset button will stop the mouse's movement,
+            button. Clicking the reset button will stop the mouse&apos;s movement,
             reset the map to its initial state, and the reset button will be
             replaced by the start button again.
           </p>
@@ -101,11 +101,11 @@ export default function Home() {
                 /find-the-cheese
               </span>
               , and title it
-              <strong className="mx-1">'Find the cheese'.</strong>
+              <strong className="mx-1">&apos;Find the cheese&apos;.</strong>
             </li>
             <li className="mt-1">
-              Add description, "Click 'Start' to see how the mouse find the
-              cheese by using DFS!", below page title
+              Add description, &quot;Click &apos;Start&apos; to see how the mouse find the
+              cheese by using DFS!&quot;, below page title
             </li>
             <li className="mt-1">
               The color of the walls is
@@ -167,7 +167,7 @@ export default function Home() {
           <ul className="list-decimal pl-6">
             <li className="mt-1">
               A header displaying
-              <strong className="mx-1">'Jedi Software'</strong> that collapses
+              <strong className="mx-1">&apos;Jedi Software&apos;</strong> that collapses
               when scrolling up and reappears when scrolling stops.
             </li>
             <li className="mt-1">
