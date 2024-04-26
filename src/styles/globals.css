@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text-highlight {
+  @apply font-bold inline mx-1 py-0.5 px-1.5 border border-amber-400 bg-amber-50 rounded
+}
