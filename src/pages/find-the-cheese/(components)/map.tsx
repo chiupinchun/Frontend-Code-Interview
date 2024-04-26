@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from "react"
+import { FC, useCallback, useEffect, useRef, useState } from "react"
 import { Cheese, Path, Rate, Wall } from "./blocks"
 import { Coordinate, MapData, MapTypes } from "../(types)"
 import { findPath } from "../(utils)/findPath"
@@ -35,12 +35,16 @@ export const Map: FC<{
     })
   }, [data])
 
+  const processId = useRef(0)
   const start = useCallback(() => {
+    const currentProcess = processId.current
     findPath(
       rawRateCoordinate,
       cheeseCoordinate,
       data,
       async (path) => {
+        if (currentProcess !== processId.current) { return }
+
         const rateCoordinate = path[path.length - 1]
         setRateCoordinate(rateCoordinate)
 
@@ -50,6 +54,12 @@ export const Map: FC<{
       }
     )
   }, [rawRateCoordinate, cheeseCoordinate, data])
+
+  const reset = useCallback(() => {
+    setRateCoordinate(rawRateCoordinate)
+    setRatePath([])
+    processId.current++
+  }, [rawRateCoordinate])
 
   return (
     <div className='relative mx-auto w-fit'>
@@ -70,7 +80,9 @@ export const Map: FC<{
       }
       <Rate coordinate={rateCoordinate} />
       <Cheese coordinate={cheeseCoordinate} />
-      <button onClick={start} className="block mt-3 w-full rounded bg-amber-400">Start</button>
+      <button onClick={rateRoute.length ? reset : start} className="block mt-3 w-full rounded bg-amber-400">
+        {rateRoute.length ? 'Reset' : 'Start'}
+      </button>
     </div>
   )
 }
