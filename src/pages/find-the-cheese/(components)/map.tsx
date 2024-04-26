@@ -80,7 +80,7 @@ export const Map: FC<{
       }
       <Rate coordinate={rateCoordinate} />
       <Cheese coordinate={cheeseCoordinate} />
-      <button onClick={rateRoute.length ? reset : start} className="block mt-3 w-full rounded bg-amber-400">
+      <button onClick={rateRoute.length ? reset : start} className="block mt-3 w-full rounded bg-amber-400 hover:bg-amber-400">
         {rateRoute.length ? 'Reset' : 'Start'}
       </button>
     </div>
